@@ -1,12 +1,8 @@
+package javachat;
 import java.io.*;
 
 public class JavaChatHandler
 {
-    public JavaChatHandler()
-    {
-        
-    }
-    
     public void input()
     {
         System.out.println("Enter your name:");
