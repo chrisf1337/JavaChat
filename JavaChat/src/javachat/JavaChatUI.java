@@ -13,14 +13,15 @@ public class JavaChatUI implements ActionListener
     private boolean buttonPressed;
     private JTextField userInput;
     private JTextArea textArea;
+    private JavaChatClient chatClient;
     
     public JavaChatUI()
     {
         frame = new JFrame();
+        frame.addWindowListener(new WindowEventHandler());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(),
                 BoxLayout.PAGE_AXIS));
-        
         textArea = new JTextArea(40, 40);
         textArea.setEditable(false);
         textArea.setLineWrap(true);
@@ -80,5 +81,18 @@ public class JavaChatUI implements ActionListener
     public void getText()
     {
         textArea.getText();
+    }
+    
+    public void setChatClient(JavaChatClient client)
+    {
+        chatClient = client;
+    }
+}
+
+class WindowEventHandler extends WindowAdapter
+{
+    public void windowClosing(WindowEvent e)
+    {
+        
     }
 }

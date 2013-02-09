@@ -41,6 +41,9 @@ public class JavaChatServer
                     System.err.println(s);
                     out.println(s);
                 }
+                out.close();
+                in.close();
+                server.close();
             }
         }
         catch(Exception e)
