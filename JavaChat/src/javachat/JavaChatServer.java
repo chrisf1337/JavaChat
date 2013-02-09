@@ -23,14 +23,19 @@ public class JavaChatServer
     /*
      * Echoes input
      */
-    public void serve() throws IOException
+    public void serve()
     {
         System.out.println("Starting JavaChatServer");
-        while(listening)
+        try
         {
-            new JavaChatServerThread(server.accept()).run();
+            while(listening)
+                new JavaChatServerThread(server.accept()).start();
+            server.close();
         }
-        server.close();
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
     }
     
     public static void main(String[] args) throws IOException 

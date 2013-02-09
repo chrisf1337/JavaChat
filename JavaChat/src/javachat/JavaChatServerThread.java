@@ -19,10 +19,11 @@ public class JavaChatServerThread extends Thread
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(
                     socket.getInputStream()));
+            System.err.println("Connection opened");
             String s;
             while(!(s = in.readLine()).equals("/quit"))
             {
-                out.println("SERVER MESSAGE:" + s);
+                out.println("SERVER MESSAGE: " + s);
             }
             
             System.err.println("Closing connection");
